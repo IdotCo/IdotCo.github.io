@@ -1,0 +1,26 @@
+.header{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    height: auto;
+    width: 100%;
+    font-size: 1.5rem;
+    letter-spacing: .25rem;
+    position: fixed;
+    background-color: gold;
+    z-index: 2;
+}
+
+.headerElement{
+    display: grid;
+    place-content: center;
+    border: 2px solid silver;
+}
+
+.header a{
+    text-decoration: none;
+    color: black;
+}
+
+.header a:hover{
+    opacity: .5;
+}
