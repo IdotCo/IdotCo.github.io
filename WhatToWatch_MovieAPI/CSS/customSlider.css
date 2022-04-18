@@ -1,0 +1,128 @@
+element{
+    --numberOfOptions: 6;
+}
+
+.durationRange{
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    user-select: none;
+}
+
+.durationRange::before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    width: calc(100% * 5 / 6);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111111;
+}
+
+.durationRange input, label{
+    box-sizing: border-box;
+    flex: 1;
+    user-select: none;
+    cursor: pointer;
+}
+
+.durationRange label{
+    display: inline-block;
+    position: relative;
+    width: 16.66%;
+    height: 100%;
+    user-select: none;
+}
+
+.durationRange label::before{
+    content: attr(data-duration);
+    position: absolute;
+    left: 50%;
+    padding-top: 10px;
+    transform: translate(-50%, 45px);
+    font-size: 1rem;
+    letter-spacing: .4px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0.85;
+    transition: all 0.15s ease-in-out;
+}
+
+.durationRange label::after{
+    content: ' ';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 2px solid #111111;
+    background: #F6F6F6;
+    border-radius: 50%;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.durationRange label:hover::after{
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+.durationRange input{
+    display: none;
+}
+
+.durationRange input:checked + label::before{
+    font-weight: 800;
+    opacity: 1;
+}
+
+.durationRange input:checked + label::after{
+    border-width: 4px;
+    transform: translate(-50%, -50%) scale(0.75);
+}
+
+.durationRange input:checked ~ #duration-pos{
+    opacity: 1;
+}
+
+.durationRange input:checked:nth-child(1) ~ #duration-pos{
+    left: 8.33%;
+}
+.durationRange input:checked:nth-child(3) ~ #duration-pos{
+    left: 25%;
+}
+.durationRange input:checked:nth-child(5) ~ #duration-pos{
+    left: 41.66%;
+}
+.durationRange input:checked:nth-child(7) ~ #duration-pos{
+    left: 58.32%;
+}
+.durationRange input:checked:nth-child(9) ~ #duration-pos{
+    left: 75%;
+}
+.durationRange input:checked:nth-child(11) ~ #duration-pos{
+    left: 91.66%;
+}
+
+.durationRange #duration-pos{
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: #ffcb74;
+    border-radius: 50%;
+    transition: all 0.15s ease-in-out;
+    transform: translate(-50%, -50%);
+    border: 2px solid #111111;
+    opacity: 0;
+    z-index: 2;
+}

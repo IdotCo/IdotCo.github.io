@@ -11,13 +11,14 @@ const container = document.querySelector(".container");
 
 let currentPage;
 let currentPageIndex;
+let currentSubPage;
 let currentSubPageIndex = 0;
 let lastPageIndex;
 let currentPageSubLength = 1;
 
 let currentSubPageHref = "#";
 
-// console.log(pages);
+console.log(pages);
 
 
 checkWhichNavigateButtonsToShow()
@@ -45,11 +46,10 @@ navigateButtons.forEach((button) => {
           .value[0];
   
       currentPageSubLength = pages[currentPageIndex].children.length;
-  
-      if (currentPageSubLength > 1) {
-        currentSubPageIndex =
-          currentPage.children[currentSubPageIndex].attributes["data-Index"]
-            .value[2];
+
+      if (currentPageSubLength > 1) { 
+        currentSubPage = checkWhichSubPageIsVisible()
+        currentSubPageIndex = currentSubPage.attributes["data-Index"].value[2]
       }
   
       handleNavigation(button);
@@ -65,6 +65,11 @@ function checkWhichNavigateButtonsToShow() {
       .value[0]
 
     currentPageSubLength = pages[currentPageIndex].children.length;
+
+    if (currentPageSubLength > 1) { 
+      currentSubPage = checkWhichSubPageIsVisible()
+      currentSubPageIndex = currentSubPage.attributes["data-Index"].value[2]
+    }
 
     //UP BUTTON
     if (currentPageIndex == 0) {
@@ -199,6 +204,17 @@ function checkWhichPageIsVisible() {
   pages.forEach((page) => {
     if (checkVisible(page)) {
       result = page;
+      return;
+    }
+  });
+  return result;
+}
+
+function checkWhichSubPageIsVisible() {
+  let result;
+  Array.from(currentPage.children).forEach((subPage) => {
+    if (checkVisible(subPage)) {
+      result = subPage;
       return;
     }
   });

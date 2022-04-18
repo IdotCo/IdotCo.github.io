@@ -1,0 +1,144 @@
+.filterDiv{
+    display: grid;
+    place-content: center;
+}
+
+.menuItem p{
+    font-size: 2rem;
+    padding-bottom: 1.5%;
+    text-decoration: underline;
+}
+
+.openFilter{
+    background: linear-gradient(to bottom right, #2f2f2f 10%, #FFCB74 100%);
+    color: #F6F6F6;
+    cursor: pointer;
+    padding: .8vw;
+    width: 70vw;
+    text-align: center;
+    font-size: 2.5rem;
+    border-radius: 1vh;
+}
+
+.active, .openFilter:hover{
+    opacity: .7;
+}
+
+.openFilter::after{
+    content: '\002B';
+    color: #F6F6F6;
+    font-weight: bold;
+    float: right;
+}
+
+.active::after{
+    content: '\2212';
+}
+
+.filterMenu{
+    overflow: hidden;
+    background-color: #2f2f2f;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    border-radius: 1vh 1vh 1vh 1vh;
+
+    color: #F6F6F6;
+}
+
+.filterMenuContent{
+    width: calc(100% - 20px);
+    box-shadow: 0 0 10px 5px #F6F6F6;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+.menuItem{
+    padding: 2.5% 5%;
+}
+
+.menuItem p{
+    color: #FFCB74;
+}
+
+#durationRanges{
+    padding-bottom: 5%;
+}
+
+#type .checkBoxLabel{
+    font-size: 2rem;
+}
+
+#genres{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+}
+
+#genres label{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#genres .checkBoxLabel .checkMark{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#types #type{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    width: 50%;
+}
+
+#releaseDate #releaseDateInput{
+    height: 40%;
+    width: 30%;
+    font-size: 1.5rem;
+    background-color: #F6F6F6;
+    color: #111111;
+    border: none
+}
+
+
+@media screen and (max-width: 1200px) {
+    #genres{
+        grid-template-columns: repeat(4, auto);
+    }
+
+    #releaseDate #releaseDateInput{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    #genres{
+        grid-template-columns: repeat(3, auto);
+    }
+
+    #types #type{
+        width: 100%;
+    }
+
+    #releaseDate #releaseDateInput{
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #genres{
+        grid-template-columns: repeat(2, auto);
+    }
+
+    #durationRanges{
+        padding-bottom: 10%;
+    }
+
+    #releaseDate #releaseDateInput{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /* FILTER NEEDS TO BE REBUILT WITH DIFFERENT DESIGN */
+}

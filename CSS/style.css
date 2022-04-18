@@ -61,6 +61,14 @@
     background-color: blue;
 }
 
+.container #shoppingWithEase{
+    display: grid;
+    grid-template-columns: repeat(2, 100%);
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
 .container #shoppingWithEase > div{
     background-color: purple;
 }
@@ -76,22 +84,17 @@
     scroll-snap-align: start;
 }
 
-
-
-
-/* #whatToWatch-2 .pageContent{
-    position: relative;
+/* OPEN PROJECT IN NEW PAGE BUTTON */
+.subPage a{
+    display: grid;
+    place-content: center;
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    box-shadow: 0 0 15px 5px black;
+    border-radius: 10px;
+    background-color: aqua;
+    height: max-content;
+    width: max-content;
+    padding: 5%;
 }
-
-
-iframe{
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    width: 100%;
-    height: 100%;
-    border: none;
-    overflow: hidden;
-    z-index: 1;
-} */

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Snake Game</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='../CSS/style.css'>
+    <script src='../JavaScript/main.js' type="module" defer></script>
+</head>
+<body>
+    <div id="page">
+        <div id="gameDiv">
+            <div id="startGamePage">
+                <button id="startGameButton">Start Game</button>
+            </div>
+            <div id="countDownTimerDiv">
+                <h2 id="countDownTimer"></h2>
+            </div>
+            <div id="gameBoard"></div>
+        </div>
+        <div id="rightForStartPage">
+            <div id="title">
+                <h2>Snake Game</h2>
+            </div>
+            <div id="gameRules">
+                <ul>
+                    <li>Eat the apple containing the answer for the equation</li>
+                    <li>You get a point and a life when eating the correct apple</li>
+                    <li>If you eat an incorrect apple you lose a life</li>
+                    <li>If you collide with the wall or yourself you go back down to a maximum of three lives and gets to start in the middle</li>
+                    <li>To move the snake use the arrow keys</li>
+                </ul>
+            </div>
+        </div>
+        <div id="rightForGame">
+            <div id="lifeAndScoreMessages">
+                <div id="livesMessage"></div>
+                <div id="scoreMessage">Score: </div>
+                <div id="highscoreMessage">HighScore: </div>
+            </div>
+            <div id="equation">
+                <span id="value01"></span>
+                <span id="calcMethod"></span>
+                <span id="value02"></span>
+                <span id="equalSign">=</span>
+                <span id="answer">__</span>
+            </div>
+            <div id="statusMessage">
+                <div id="goodMessage">
+                    Correct!
+                </div>
+                <div id="badMessage">
+                    Wrong!
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

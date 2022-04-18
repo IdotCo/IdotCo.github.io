@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    border: none;
+}
+
+body{
+    background-color: #111111;
+}
+
+#page{
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    padding-top: 5%;
+}
+
+#welcomeText{
+    display: grid;
+    place-content: center;
+    text-align: center;
+
+    margin: 2.5% 0;
+    color: #F6F6F6;
+}
+
+#welcomeText h2{
+    font-size: 4rem;
+}
+
+#welcomeText h2 span{
+    color: #FFCB74;
+}
+
+#welcomeText p{
+    font-size: 2rem;
+}
+
+.filterDiv, #buttonDiv, #resultDiv{
+    margin: 2.5% 0;
+}
+
+#page #buttonDiv{
+    display: grid;
+    place-content: center;
+}
+
+#page #buttonDiv #searchButton{
+    min-height: 40px;
+    height: 10vh;
+    width: 45vw;
+    border-radius: 2.5vw;
+    font-size: 2.5rem;
+    background: linear-gradient(to bottom right, #2f2f2f 10%, #FFCB74 100%);
+    color: #F6F6F6;
+}
+
+#page #buttonDiv #searchButton:hover{
+    opacity: .7;
+}
+
+#page #resultDiv{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-evenly;
+}
+
+.resultCard{
+    padding: 7.5% 0;
+    height: 35vh;
+    width: 15vw;
+}
+
+.resultCardInner{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    border-radius: 5%;
+    background: linear-gradient(to bottom right, #2f2f2f 30%, #FFCB74 100%);
+    color: #F6F6F6;
+}
+
+.resultCardInner.isFlipped{
+    transform: rotateY(180deg);
+}
+
+.cardFace{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 5px 10px 5px #FFCB74;
+    border-radius: 5%;
+}
+
+.cardFace h2{
+    text-align: center;
+    padding: 2.5% 2.5%;
+    font-size: 2rem;
+}
+
+.cardFace p{
+    text-align: center;
+    padding-bottom: 2.5%;
+    font-size: 1.5rem;
+}
+
+.cardFront{
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.imageDiv{
+    background-image: url('../Images/NoImage.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 2.5%;
+}
+
+.cardBack{
+    transform: rotateY(180deg);
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    background-color: #2f2f2f;
+}
+
+.contentDiv{
+    overflow: auto;
+    padding: 5%;
+    font-size: 1.2rem;
+}
+
+footer{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+footer img{
+    width: 60%;
+    float: right;
+}
+
+/* width */
+.contentDiv::-webkit-scrollbar {
+    width: 0.3vw;
+}
+
+/* Track */
+.contentDiv::-webkit-scrollbar-track {
+    visibility: hidden;
+}
+
+/* Handle */
+.contentDiv::-webkit-scrollbar-thumb {
+    background: #F6F6F6;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.contentDiv::-webkit-scrollbar-thumb:hover {
+    background: #f6f6f69f;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1500px) {
+    #page #resultDiv{
+        grid-template-columns: repeat(4, auto);
+    }
+    .resultCard{
+        width: 20vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #page #resultDiv{
+        grid-template-columns: repeat(3, auto);
+    }
+    .resultCard{
+        width: 25vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #page #resultDiv{
+        grid-template-columns: repeat(2, auto);
+    }
+    .resultCard{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #page #resultDiv{
+        grid-template-columns: repeat(1, auto);
+    }
+    .resultCard{
+        width: 80vw;
+        height: 55vh;
+        padding: 5% 0;
+    }
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>What To Watch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/filter.css" />
+    <link rel="stylesheet" href="../CSS/customCheckBoxAndRadioButton.css" />
+    <link rel="stylesheet" href="../CSS/customSlider.css" />
+    <script src="../JavaScript/main.js" type="module" defer></script>
+    <script src="../JavaScript/filter.js" type="module" defer></script>
+  </head>
+  <body>
+    <div id="page">
+
+      <div id="welcomeText">
+        <h2>Welcome to <span>WhatToWatch!</span></h2>
+        <p>-The place that helps you make a choice!</p>
+        <!-- <p>-The place that filters <b>your</b> options after <b>your</b> desires!</p> -->
+      </div>
+
+      <div class="filterDiv">
+        <button class="openFilter">Filter</button>
+        <div class="filterMenu">
+          <div class="filterMenuContent">
+            <div class="menuItem" id="genreCheckBoxes">
+              <p>Genres</p>
+              <div id="genres">
+                <label class="checkBoxLabel" for="actionCB"
+                  >Action
+                  <input type="checkbox" id="actionCB" name="genre" value="28"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="adventureCB"
+                  >Adventure
+                  <input type="checkbox" id="adventureCB" name="genre" value="12"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="animationCB"
+                  >Animation
+                  <input type="checkbox" id="animationCB" name="genre" value="16"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="comedyCB"
+                  >Comedy
+                  <input type="checkbox" id="comedyCB" name="genre" value="35"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="crimeCB"
+                  >Crime
+                  <input type="checkbox" id="crimeCB" name="genre" value="80"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="documentaryCB"
+                  >Documentary
+                  <input type="checkbox" id="documentaryCB" name="genre" value="99"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="dramaCB"
+                  >Drama
+                  <input type="checkbox" id="dramaCB" name="genre" value="18"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="familyCB"
+                  >Family
+                  <input type="checkbox" id="familyCB" name="genre" value="10751"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="fantasyCB"
+                  >Fantasy
+                  <input type="checkbox" id="fantasyCB" name="genre" value="14"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="historyCB"
+                  >History
+                  <input type="checkbox" id="historyCB" name="genre" value="36"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="horrorCB"
+                  >Horror
+                  <input type="checkbox" id="horrorCB" name="genre" value="27"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="kidsCB"
+                  >Kids
+                  <input type="checkbox" id="kidsCB" name="genre" value="10762"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="musicCB"
+                  >Music
+                  <input type="checkbox" id="musicCB" name="genre" value="10402"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="mysteryCB"
+                  >Mystery
+                  <input type="checkbox" id="mysteryCB" name="genre" value="9648"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="newsCB"
+                  >News
+                  <input type="checkbox" id="newsCB" name="genre" value="10763"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="realityCB"
+                  >Reality
+                  <input type="checkbox" id="realityCB" name="genre" value="10764"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="romanceCB"
+                  >Romance
+                  <input type="checkbox" id="romanceCB" name="genre" value="10749"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="sciFiCB"
+                  >Sci-Fi
+                  <input type="checkbox" id="sciFiCB" name="genre" value="878"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="soapCB"
+                  >Soap
+                  <input type="checkbox" id="soapCB" name="genre" value="10766"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="talkCB"
+                  >Talk
+                  <input type="checkbox" id="talkCB" name="genre" value="10767"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="tvMovieCB"
+                  >TV Movie
+                  <input type="checkbox" id="tvMovieCB" name="genre" value="10770"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="thrillerCB"
+                  >Thriller
+                  <input type="checkbox" id="thrillerCB" name="genre" value="53"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="warCB"
+                  >War
+                  <input type="checkbox" id="warCB" name="genre" value="10752"/>
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="westernCB"
+                  >Western
+                  <input type="checkbox" id="westernCB" name="genre" value="37"/>
+                  <span class="checkMark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="menuItem" id="types">
+              <p>Type</p>
+              <div id="type">
+                <label class="checkBoxLabel" for="movieRadio"
+                  >Movie
+                  <input type="radio" name="type" id="movieRadio" value="movie" checked />
+                  <span class="checkMark"></span>
+                </label>
+                <label class="checkBoxLabel" for="serieRadio"
+                  >Serie
+                  <input type="radio" name="type" id="serieRadio" value="tv" />
+                  <span class="checkMark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="menuItem" id="releaseDate">
+              <p>Release Date (later then)</p>
+              <input type="month" name="releaseDate" id="releaseDateInput" list="releaseDateList">
+              <datalist id="releaseDateList">
+                <option value="1950-01"></option>
+                <option value="2000-01"></option>
+                <option value="2005-01"></option>
+                <option value="2010-01"></option>
+                <option value="2012-01"></option>
+                <option value="2014-01"></option>
+                <option value="2016-01"></option>
+                <option value="2018-01"></option>
+                <option value="2020-01"></option>
+                <option value="2022-01"></option>
+              </datalist>
+            </div>
+
+            <div class="menuItem" id="durationRanges">
+              <p>Duration (greater than)</p>
+              <div class="durationRange">
+                <!-- <input type="radio" name="duration" id="0" value="0" checked>
+                <label for="0" data-duration="0min"></label> -->
+
+                <input type="radio" name="duration" id="30" value="30" />
+                <label for="30" data-duration="30min"></label>
+
+                <input type="radio" name="duration" id="60" value="60" />
+                <label for="60" data-duration="60min"></label>
+
+                <input type="radio" name="duration" id="90" value="90" />
+                <label for="90" data-duration="90min"></label>
+
+                <input type="radio" name="duration" id="120" value="120" />
+                <label for="120" data-duration="120min"></label>
+
+                <input type="radio" name="duration" id="150" value="150" />
+                <label for="150" data-duration="150min"></label>
+
+                <input type="radio" name="duration" id="180" value="180" />
+                <label for="180" data-duration="180min"></label>
+
+                <div id="duration-pos"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="buttonDiv">
+        <button id="searchButton">Search</button>
+      </div>
+      <div id="resultDiv"></div>
+    </div>
+    <footer>
+      <div id="poweredBy">
+        <!-- <p>This webpage is powered by:</p> -->
+        <img src="../Images/TheMovieDB.svg">
+      </div>
+    </footer>
+  </body>
+</html>

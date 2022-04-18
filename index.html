@@ -3,32 +3,57 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Waarvsell</title>
+    <title>Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/navigateButtons.css" />
     <link rel="stylesheet" href="./CSS/header.css" />
-    
-    <script src="../JavaScript/main.js" type="module" defer></script>
+
+    <script src="./JavaScript/main.js" type="module" defer></script>
   </head>
   <body>
     <div class="header">
-      <a href="#aboutMe">
-        <div class="headerElement">About Me</div>
-      </a>
-      <a href="#whatToWatch">
-        <div class="headerElement">WhatToWatch</div>
-      </a>
-      <a href="#mathSnake">
-        <div class="headerElement">Math Snake Game</div>
-      </a>
-      <a href="#shoppingWithEase">
-        <div class="headerElement">ShoppingWithEase</div>
-      </a>
-      <a href="#contactMe">
-        <div class="headerElement">Contact Me</div>
-      </a>
+      <a href="#aboutMe"> About Me </a>
+
+      <div class="dropDown">
+        <a href="#projects"> Projects </a>
+
+        <div class="dropDownContent">
+          <div class="dropOut">
+            <a href="#whatToWatch"> WhatToWatch</a>
+
+            <div class="dropOutContent">
+              <a href="#whatToWatch-1">About WhatToWatch</a>
+              <a href="./WhatToWatch_MovieAPI/HTML/index.html">Open WhatToWatch</a>
+            </div>
+          </div>
+
+          <div class="dropOut">
+            <a href="#mathSnake"> Math Snake Game </a>
+
+            <div class="dropOutContent">
+              <a href="#mathSnake-1">About Math Snake Game</a>
+              <a href="./GridSnake/HTML/index.html">Open Math Snake Game</a>
+            </div>
+          </div>
+
+          <div class="dropOut">
+            <a href="#shoppingWithEase"> ShoppingWithEase </a>
+
+            <div class="dropOutContent">
+              <a href="#shoppingWithEase-1">About ShoppingWithEase</a>
+              <a href="#shoppingWithEase-2">Download ShoppingWithEase</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <a href="#contactMe"> Contact Me </a>
     </div>
+
+
+
     <div class="container">
       <div id="navigatePageButtons">
         <a href="#" id="up">
@@ -53,7 +78,6 @@
         </a>
       </div>
 
-      
       <div class="page" id="aboutMe">
         <div class="subPage" id="aboutMe-1" data-Index="0.0">
           <div class="pageContent">
@@ -62,39 +86,45 @@
         </div>
       </div>
 
-      <div class="page" id="whatToWatch">
-        <div class="subPage" id="whatToWatch-1" data-Index="1.0">
-          <div class="pageContent">
-            <h1>WhatToWatch . 1</h1>
+      <div id="projects">
+        <div class="page" id="whatToWatch">
+          <div class="subPage" id="whatToWatch-1" data-Index="1.0">
+            <div class="pageContent">
+              <h1>About WhatToWatch</h1>
+            </div>
+          </div>
+          <div class="subPage" id="whatToWatch-2" data-Index="1.1">
+            <div class="pageContent">
+              <a href="./WhatToWatch_MovieAPI/HTML/index.html">Open WhatToWatch</a>
+
+              <!-- <iframe src="../WhatToWatch_MovieAPI/HTML/index.html"></iframe> -->
+            </div>
           </div>
         </div>
-        <div class="subPage" id="whatToWatch-2" data-Index="1.1">
-          <div class="pageContent">
-            <h1>WhatToWatch . 2</h1>
 
-            <!-- <iframe src="../WhatToWatch_MovieAPI/HTML/index.html"></iframe> -->
-
+        <div class="page" id="mathSnake">
+          <div class="subPage" id="mathSnake-1" data-Index="2.0">
+            <div class="pageContent">
+              <h1>About Math Snake Game</h1>
+            </div>
+          </div>
+          <div class="subPage" id="mathSnake-2" data-Index="2.1">
+            <div class="pageContent">
+              <a href="./GridSnake/HTML/index.html">Open Math Snake Game</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="page" id="mathSnake">
-        <div class="subPage" id="mathSnake-1" data-Index="2.0">
-          <div class="pageContent">
-            <h1>Math Snake Game</h1>
+        <div class="page" id="shoppingWithEase">
+          <div class="subPage" id="shoppingWithEase-1" data-Index="3.0">
+            <div class="pageContent">
+              <h1>About ShoppingWithEase</h1>
+            </div>
           </div>
-        </div>
-        <div class="subPage" id="mathSnake-2" data-Index="2.1">
-          <div class="pageContent">
-            <h1>Math Snake Game 2</h1>
-          </div>
-        </div>
-      </div>
-
-      <div class="page" id="shoppingWithEase">
-        <div class="subPage" id="shoppingWithEase-1" data-Index="3.0">
-          <div class="pageContent">
-            <h1>ShoppingWithEase</h1>
+          <div class="subPage" id="shoppingWithEase-2" data-Index="3.1">
+            <div class="pageContent">
+              <h1>ShoppingWithEase is still in progress...</h1>
+            </div>
           </div>
         </div>
       </div>
@@ -106,7 +136,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </body>
 </html>
