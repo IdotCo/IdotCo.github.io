@@ -9,7 +9,10 @@ const modal = document.getElementById('card-modal');
 const modalImg = document.getElementById('modal-img');
 const scoreDisplay = document.getElementById('score');
 const winModal = document.getElementById('win-modal');
+const movesDisplay = document.getElementById('moves');
+const finalMovesDisplay = document.getElementById('final-moves');
 
+let moves = 0;
 let cards = [];
 let flippedCards = [];
 let matchedPairs = 0;
@@ -100,7 +103,11 @@ function flipCardOnBoard(index) {
 
 // 4. Check for Match
 function checkForMatch() {
-    lockBoard = true; // Stop user from clicking a 3rd card immediately
+    // 1. Increment Moves
+    moves++;
+    movesDisplay.innerText = `Moves: ${moves}`;
+
+    lockBoard = true; 
 
     const [card1, card2] = flippedCards;
     const isMatch = card1.dataset.id === card2.dataset.id;
@@ -119,7 +126,9 @@ function disableCards() {
     lockBoard = false;
 
     if (matchedPairs === totalPairs) {
-        // Wait 0.5s for the last card flip to finish, then show the win modal
+        // Update the win text
+        finalMovesDisplay.innerText = moves; 
+        
         setTimeout(() => {
             winModal.classList.remove('hidden');
         }, 500);
@@ -136,9 +145,18 @@ function unflipCards() {
 }
 
 function restartGame() {
+    // Hide the win modal
     winModal.classList.add('hidden');
+    
+    // Reset variables
     flippedCards = [];
     lockBoard = false;
+    
+    // Reset Moves
+    moves = 0;
+    movesDisplay.innerText = `Moves: 0`;
+    
+    // Start fresh
     initGame();
 }
 

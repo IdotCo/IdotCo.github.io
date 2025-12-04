@@ -13,6 +13,7 @@
         <h1>Christmas Memory</h1>
         <div class="controls">
             <span id="score">Matches: 0 / 18</span>
+            <span id="moves">Moves: 0</span>
             <button onclick="restartGame()">Reset Game</button>
         </div>
     </div>
@@ -38,6 +39,8 @@
         <div class="win-content">
             <h2>Congratulations!</h2>
             <p>You matched all the cards!</p>
+            <p class="final-score">You finished in <span id="final-moves">0</span> moves.</p>
+            
             <div class="merry-text">Merry Christmas</div>
             <button onclick="restartGame()">Play Again</button>
         </div>
