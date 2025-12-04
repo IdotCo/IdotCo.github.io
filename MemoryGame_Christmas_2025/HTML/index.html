@@ -5,18 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christmas Memory Game</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="game-container">
-        <div id="christmas-tree">
-            <!-- Lights and star will be added here dynamically or with CSS --><img src="../Images/tree-base.png" alt="Christmas Tree" id="tree-image">
-            <div id="star-light" class="light"></div>
-            <div id="lights-container"></div>
+
+    <div class="header">
+        <h1>Christmas Memory</h1>
+        <div class="controls">
+            <span id="score">Matches: 0 / 18</span>
+            <button onclick="restartGame()">Reset Game</button>
         </div>
-        <div id="game-board">
-            <!-- Cards will be dynamically added here --></div>
-        <div id="message-overlay">
-            <p id="christmas-message"></p>
+    </div>
+
+    <div class="game-container" id="game-board">
+        </div>
+
+    <div id="card-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-card">
+                <div class="modal-face modal-back">
+                    <img src="../Images/card-back.png" alt="Back">
+                </div>
+                <div class="modal-face modal-front">
+                    <img id="modal-img" src="" alt="Front">
+                </div>
+            </div>
+        </div>
+        <p class="instruction">Tap anywhere to place card</p>
+    </div>
+
+    <div id="win-modal" class="modal hidden">
+        <div class="win-content">
+            <h2>Congratulations!</h2>
+            <p>You matched all the cards!</p>
+            <div class="merry-text">Merry Christmas</div>
+            <button onclick="restartGame()">Play Again</button>
         </div>
     </div>
 

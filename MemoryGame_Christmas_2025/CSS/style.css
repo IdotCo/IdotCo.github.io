@@ -1,227 +1,249 @@
+:root {
+    --bg-color: #0F3B1E; /* Christmas Green */
+    --accent-color: #C41E3A; /* Christmas Red */
+    --gold: #FFD700;
+    --text-color: #fff;
+    --card-gap: 10px;
+}
+
 body {
     margin: 0;
-    font-family: sans-serif;
+    padding: 0;
+    background-color: var(--bg-color);
+    background-image: url('https://www.transparenttextures.com/patterns/snow.png'); /* Subtle snow pattern */
+    color: var(--text-color);
+    font-family: 'Mountains of Christmas', cursive;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0; /* Light background #f0f0f0 */
-    overflow: hidden; /* Prevent scroll during animations */
 }
 
-#game-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
+.header {
+    text-align: center;
     padding: 20px;
-    box-sizing: border-box;
 }
 
-#christmas-tree {
-    position: relative;
-    width: 300px; /* Initial size */
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align tree image to the top */
-    transition: all 2s ease-in-out; /* For growth animation */
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px #000;
 }
 
-#tree-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    position: absolute;
-    bottom: 0;
+.controls {
+    margin-top: 10px;
+    font-size: 1.5rem;
 }
 
-#star-light {
-    position: absolute;
-    top: 5%; /* Adjust as needed for star position */
-    width: 30px;
-    height: 30px;
-    background-color: #ccc; /* Off light color */
-    border-radius: 50%;
-    box-shadow: 0 0 5px #aaa;
-    transition: background-color 0.5s, box-shadow 0.5s;
-    z-index: 10;
-}
-
-#star-light.lit {
-    background-color: gold;
-    box-shadow: 0 0 15px gold, 0 0 30px yellow;
-}
-
-#lights-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 5;
-}
-
-.light {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: #ccc; /* Off light color */
-    border-radius: 50%;
-    box-shadow: 0 0 3px #aaa;
-    transition: background-color 0.5s, box-shadow 0.5s;
-}
-
-.light.lit {
-    animation: twinkle 1.5s ease-in-out infinite alternate;
-}
-
-/* Different light colors for visual variety */
-.light.lit:nth-child(3n) { background-color: red; box-shadow: 0 0 10px red; }
-.light.lit:nth-child(3n+1) { background-color: blue; box-shadow: 0 0 10px blue; }
-.light.lit:nth-child(3n+2) { background-color: green; box-shadow: 0 0 10px green; }
-
-
-@keyframes twinkle {
-    from { opacity: 0.7; }
-    to { opacity: 1; box-shadow: 0 0 15px currentColor; }
-}
-
-
-#game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Example: 4 columns, adjust as needed */
-    gap: 15px;
-    perspective: 1000px;
-    opacity: 1;
-    transition: opacity 1s ease-out;
-}
-
-#game-board.hidden {
-    opacity: 0;
-    pointer-events: none; /* Disable interaction when hidden */
-}
-
-.card {
-    width: 100px; /* Example card size */
-    height: 100px;
-    background-color: #ddd;
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: 2px solid var(--gold);
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
     border-radius: 8px;
+    margin-left: 15px;
+}
+
+/* --- THE GRID --- */
+.game-container {
+    display: grid;
+    gap: var(--card-gap);
+    padding: 20px;
+    margin-bottom: 50px;
+    width: 90%;
+    max-width: 1000px;
+    perspective: 1000px;
+}
+
+/* Desktop: 6 columns */
+.game-container {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 5px;
+        width: 98%;
+        padding: 5px;
+    }
+}
+
+/* --- THE CARD --- */
+.card {
+    background-color: transparent;
+    aspect-ratio: 1 / 1; /* Keeps cards square */
     cursor: pointer;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.card.flip {
-    transform: rotateY(180deg);
-}
-
-.card-inner {
+.card img {
     width: 100%;
     height: 100%;
-    position: absolute;
-    transform-style: preserve-3d;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    box-sizing: border-box;
 }
 
-.card-front, .card-back {
+.card-face {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 8px;
 }
 
 .card-front {
-    background-color: #8B4513; /* Brown for card back */
-    color: white;
-    font-size: 2em;
-    transform: rotateY(180deg); /* Hidden by default */
+    transform: rotateY(180deg);
 }
 
 .card-back {
-    background-image: url('../Images/card-back.png');
-    background-size: cover;
-    background-position: center;
-    color: transparent; 
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
+    background-color: var(--accent-color);
 }
 
-.card-front img, .card-back img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 5px;
-    object-fit: contain;
+/* Flip class added by JS */
+.card.flipped {
+    transform: rotateY(180deg);
 }
 
-#message-overlay {
-    position: absolute;
+/* --- THE MODAL (ZOOM EFFECT) --- */
+.modal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0,0,0,0.85);
+    z-index: 100;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 3em;
-    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.modal.hidden {
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s, visibility 1s;
-    z-index: 100;
+    pointer-events: none;
 }
 
-#message-overlay.show {
-    opacity: 1;
-    visibility: visible;
+.modal-content {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
 }
 
-#christmas-message {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+/* Make modal larger on desktop */
+@media (min-width: 768px) {
+    .modal-content {
+        width: 500px;
+        height: 500px;
+    }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #game-container {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 10px;
-    }
+.modal-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: zoomFlip 0.8s forwards;
+}
 
-    #christmas-tree {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 20px;
-    }
+.modal-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    border: 4px solid var(--gold);
+    overflow: hidden;
+}
 
-    #game-board {
-        grid-template-columns: repeat(4, 1fr); /* More compact for mobile */
-        gap: 10px;
-    }
+.modal-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    .card {
-        width: 80px;
-        height: 80px;
-    }
+.modal-back {
+    background: var(--accent-color);
+}
 
-    #message-overlay {
-        font-size: 2em;
-    }
+.modal-front {
+    transform: rotateY(180deg);
+}
+
+.instruction {
+    color: white;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes zoomFlip {
+    0% { transform: scale(0.1) rotateY(0deg); }
+    100% { transform: scale(1) rotateY(180deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* --- WIN MODAL STYLING --- */
+.win-content {
+    background-color: var(--accent-color); /* Christmas Red background */
+    border: 5px solid var(--gold);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px var(--gold);
+    animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 90%;
+}
+
+.win-content h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    color: #fff;
+}
+
+.win-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.merry-text {
+    font-size: 3.5rem;
+    color: var(--gold);
+    text-shadow: 2px 2px 0px #000;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+/* Play Again button specific style */
+.win-content button {
+    background-color: var(--bg-color); /* Green button on Red background */
+    border: 2px solid white;
+    font-size: 1.5rem;
+    padding: 10px 25px;
+    transition: transform 0.2s;
+}
+
+.win-content button:hover {
+    transform: scale(1.1);
+}
+
+/* Bounce Animation for the modal appearing */
+@keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
 }
