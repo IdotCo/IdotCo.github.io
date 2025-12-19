@@ -264,3 +264,30 @@ button {
     60% { transform: scale(1.1); opacity: 1; }
     100% { transform: scale(1); }
 }
+
+/* Add this to the bottom of your CSS file */
+
+.secret-text {
+    font-size: 1.5rem;
+    color: #fff; /* White text */
+    background-color: rgba(0, 0, 0, 0.2); /* Slight dark background to make it pop */
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 10px; /* Keeps layout stable even if empty */
+    font-style: italic;
+    display: none; /* Hidden by default */
+}
+
+/* When the message has text, we will set display: block via JS, 
+   or we can just leave it visible but empty. 
+   Let's keep it simple: if it has content, it shows. */
+.secret-text:not(:empty) {
+    display: block;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

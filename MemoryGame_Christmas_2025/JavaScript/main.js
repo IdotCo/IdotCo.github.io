@@ -11,6 +11,7 @@ const scoreDisplay = document.getElementById('score');
 const winModal = document.getElementById('win-modal');
 const movesDisplay = document.getElementById('moves');
 const finalMovesDisplay = document.getElementById('final-moves');
+const secretMsgDisplay = document.getElementById('secret-message');
 
 let moves = 0;
 let cards = [];
@@ -129,6 +130,19 @@ function disableCards() {
         // Update the win text
         finalMovesDisplay.innerText = moves; 
         
+        // --- DATE CHECK LOGIC ---
+        const today = new Date();
+        const month = today.getMonth();
+        const date = today.getDate();
+        const year = today.getFullYear();
+
+        // Check if it is December (11) and the 24th
+        if (year === 2025 && month === 11 && date === 24) {
+            secretMsgDisplay.innerText = "Take a look in the cupboard on the balcony";
+        } else {
+            secretMsgDisplay.innerText = "";
+        }
+
         setTimeout(() => {
             winModal.classList.remove('hidden');
         }, 500);
